@@ -11,6 +11,7 @@ export const router = createBrowserRouter([
       {
         path: "/my-day",
         Component: MyDay,
+        index: true,
       },
       {
         path: "/planned-tasks",

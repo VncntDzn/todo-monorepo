@@ -1,23 +1,15 @@
-import { useState } from "react";
-import { RxHamburgerMenu } from "react-icons/rx";
+import { Outlet } from "react-router";
 import { LeftPanel } from "../components/left-panel.component";
 
 export const Home = () => {
-  const [isToggled, setToggle] = useState(false);
-
-  const handleToggle = () => {
-    setToggle((prev) => !prev);
-  };
   return (
-    <div className="container mx-auto shadow-lg h-screen">
-      <div className="h-14 bg-green-500 flex items-center gap-2 pl-2">
-        <RxHamburgerMenu onClick={handleToggle} size={20} />
-        <h1>TADAA</h1>
+    <div className="container mx-auto shadow-lg h-screen flex flex-col lg:flex-row lg:gap-2">
+      <div className={`w-full lg:flex lg:w-1/4`}>
+        <LeftPanel />
       </div>
-      <div className={`${isToggled ? "flex" : "hidden"}`}>
-        <LeftPanel onToggle={handleToggle} />
+      <div className="flex flex-1 w-full">
+        <Outlet />
       </div>
-      <div className="hidden">right panel</div>
     </div>
   );
 };
